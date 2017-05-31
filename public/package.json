@@ -1,0 +1,19 @@
+{
+  "name": "excel-courses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcus1023/no-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcus1023/no-server/issues"
+  },
+  "homepage": "https://github.com/marcus1023/no-server#readme"
+}

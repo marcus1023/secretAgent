@@ -1,0 +1,54 @@
+<section class="full-build">
+  <section class="wrapper">
+    <!-- Welcome Screen Mission Impossible Animation -->
+    <div class="welcome-section" id="welcome-section">
+      <!-- Tom Cruze Video -->
+      <video id="tommy-boy"  autoplay muted>
+        <source src="./img/missionimpossible.mp4" type="video/mp4">
+      </video>
+      <div id="welcome-texts">
+        <h1>Welcome</h1>
+        <p style="text-align:center;">Prepare to manage your agents</p>
+      </div>
+    </div>
+    <!-- Main Input Screen -->
+    <section class="inputs">
+      <!-- Create a new message section -->
+      <div class="input-section"  id="input-section">
+        <h2>Create New Message</h2>
+        <div class="mess-input">
+          <p>Agent Number</p>
+          <input type="number"  ng-model="newMission.agentNum" placeholder="007"/>
+        </div>
+        <div class="mess-input">
+          <p>Message</p>
+          <textarea ng-model="newMission.disc" placeholder="Their mission, should they choose to accept it"></textarea>
+        </div>
+        <div class="mess-input">
+          <p>Self Destruct Timer</p>
+          <input ng-model="newMission.timer" type="number" placeholder="ex. 20 (Input No. of Seconds)"/>
+        </div>
+        <div class="mess-input mess-input-send">
+          <div ng-click="createMission(newMission)" id="send-message">Send Message</div>
+        </div>
+      </div>
+      <!-- Collection and Management of saved messages -->
+      <div class="input-list">
+        <h2>Manage Agent Messages</h2>
+          <div class="saved-message">
+            <div class="message-info">
+              <p><span class="message-subtitle">Agent Number:</span> <span>0405</span></p>
+              <p><span class="message-subtitle" >Agent Mission:</span> <span>Seinfeld ipsum dolor sit amet George: I would drape myself in velvet if it were socially acceptable. Puddy: I painted my face Elaine: You painted your face? Puddy: Yeah. Elaine: Why? Puddy: Well, you know, support the team</span></p>
+              <p><span class="message-subtitle" >Self Destruct Time:</span> <span>200 seconds</span></p>
+            </div>
+            <div class="message-management">
+              <div class="manage-message">Change Agent</div>
+              <div class="manage-message">Change Mission</div>
+              <div class="manage-message">Change Timer</div>
+              <div class="manage-message">Delete Mission</div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </section>
+</section>
