@@ -243,6 +243,33 @@ h2{
   padding: 0 5px 5px 0;
   font-weight: 400;
 }
+.updates-black{
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0, .5);
+  height: 100vh;
+  width: 100%;
+}
+.updates h3{
+  margin: 10px;
+  font-size: 2rem;
+}
+.updates{
+  display: none;
+  flex-direction: column;
+  border-radius: 5px;
+  position: fixed;
+  z-index: 6;
+  top: 35%;
+  left: 20%;
+  width: 60%;
+  height:30%;
+  background: white;
+}
 @media screen and (max-width: 780px) {
   .inputs{
     flex-direction: column;

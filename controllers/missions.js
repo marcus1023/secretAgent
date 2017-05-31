@@ -33,5 +33,10 @@ module.exports = {
         }
       }
     });
+  },
+  getMissions: function (req, res) {
+    db.checkMissions(function (err, result) {
+      res.send(result)
+    });
   }
 }

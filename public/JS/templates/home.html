@@ -35,20 +35,32 @@
       <!-- Collection and Management of saved messages -->
       <div class="input-list">
         <h2>Manage Agent Messages</h2>
-          <div class="saved-message">
+          <div class="saved-message" ng-repeat="missions in mission">
             <div class="message-info">
-              <p><span class="message-subtitle">Agent Number:</span> <span>0405</span></p>
-              <p><span class="message-subtitle" >Agent Mission:</span> <span>Seinfeld ipsum dolor sit amet George: I would drape myself in velvet if it were socially acceptable. Puddy: I painted my face Elaine: You painted your face? Puddy: Yeah. Elaine: Why? Puddy: Well, you know, support the team</span></p>
-              <p><span class="message-subtitle" >Self Destruct Time:</span> <span>200 seconds</span></p>
+              <p><span class="message-subtitle"  >Agent Number:</span> <span>{{missions.agent}}</span></p>
+              <p><span class="message-subtitle"  >Agent Mission:</span> <span>{{missions.message}}</span></p>
+              <p><span class="message-subtitle"  >Self Destruct Time:</span> <span>{{missions.timeout}}</span></p>
             </div>
             <div class="message-management">
-              <div class="manage-message">Change Agent</div>
-              <div class="manage-message">Change Mission</div>
-              <div class="manage-message">Change Timer</div>
-              <div class="manage-message">Delete Mission</div>
+              <div class="manage-message" ng-click="setUpdate('changeAgent', missions.id)">Change Agent</div>
+              <div class="manage-message" ng-click="setUpdate('changeMission', missions.id)">Change Mission</div>
+              <div class="manage-message" ng-click="setUpdate('changeTimeout', missions.id)">Change Timer</div>
+              <div class="manage-message" ng-click="deleteMission(missions.id)">Delete Mission</div>
             </div>
           </div>
       </div>
+      <section class="updates" id="updates">
+        <h3>Update {{update.title}}</h3>
+        <div style="margin: 15px 0 0 15px;" class="mess-input">
+          <p>New {{update.title}}</p>
+          <input type="number" ng-model="update.value"/>
+        </div>
+        <div class="mess-input mess-input-send">
+          <div ng-click="routeUpdate(update.type)" id="send-message">Confirm</div>
+        </div>
+      </section>
+      <section class="updates-black" id="updates-black" ng-click="exitUpdate()">
+      </section>
     </section>
   </section>
 </section>

@@ -36,6 +36,11 @@ setInterval(checkMissions, 20000);
 // system API routes
 // Create a new Mission
 app.post('/api/createMission', missionCrtl.createMission);
+// app.post('/api/deleteMission', missionCrtl.deleteMission);
+// app.post('/api/changeAgent', missionCrtl.changeAgent);
+// app.post('/api/changeTimeout', missionCrtl.changeTimeout);
+// app.post('/api/changeMissionDisc', missionCrtl.changeMissionDisc);
+app.get('/api/getMissions', missionCrtl.getMissions);
 
 app.listen(3000 , function(){
   console.log('I\'m listening on port 3k ');
