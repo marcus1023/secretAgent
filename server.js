@@ -42,6 +42,6 @@ app.post('/api/createMission', missionCrtl.createMission);
 // app.post('/api/changeMissionDisc', missionCrtl.changeMissionDisc);
 app.get('/api/getMissions', missionCrtl.getMissions);
 
-app.listen(80 , function(){
+app.listen(5000 , function(){
   console.log('I\'m listening on port 3k ');
 })
