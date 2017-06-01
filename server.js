@@ -8,7 +8,6 @@ var massive = require('massive');
 var connect = massive.connectSync({connectionString: config.connectionString});
 var massiveInstance = massive.connectSync({connectionString : config.connectionString})
 var app = module.exports = express();
-// let testing = require('./test/apiCheckers.js')
 
 app.set('db', massiveInstance);
 var db = app.get('db');
@@ -23,7 +22,34 @@ app.use(session({
 		maxAge:(1000*60*60*24*7)
 	}
 }));
-
+// Example of unit tests with hapijs/lab
+// lab.experiment("Basic HTTP Tests", function() {
+// 	// tests
+// 	lab.test("GET /getMissions Return All Missions", function(done) {
+// 		var options = {
+// 			method: "GET",
+// 			url: "/api/getMissions"
+// 		};
+// 		// server.inject lets you simulate an http request
+// 		server.inject(options, function(response) {
+// 			Code.expect(response.statusCode).to.equal(200);
+//			Code.expect(response.result).to.have.length(1);
+//			server.stop(done);
+// 		});
+// 	});
+// 	lab.test("GET /getMissions Return All Missions", function(done) {
+// 		var options = {
+// 			method: "GET",
+// 			url: "/api/getMissions"
+// 		};
+// 		// server.inject lets you simulate an http request
+// 		server.inject(options, function(response) {
+// 			Code.expect(response.statusCode).to.equal(200);
+//			Code.expect(response.result).to.equal.('Success');
+//			server.stop(done);
+// 		});
+// 	});
+// });
 //DB controllers required
 let missionCrtl = require('./controllers/missions.js') ;
 
