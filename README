@@ -1,4 +1,13 @@
 *****
+Note to NetApp Team
+*****
+I had a bit of a misunderstanding about what exactly Hapi JS was used for and ended up creating my API and NODEJS
+server via express. Instead of rewriting my entire server.js file to implement hapijs/lab testing I simply
+included the tests commented out in the server js file. I may re-write my server.js file and get these things running
+before I come in but I wanted to shoot this info off to you before the 3 hour deadline specified in the instructions
+
+
+*****
 SECRET AGENT System API Documentation
 *****
 
@@ -67,4 +76,7 @@ npm installed
 
 Instructions:
 
-Clone this
+Clone this github repo: https://github.com/marcus1023/secretAgent
+NOTE: npm packages have been included in that repo so you wont have to NPM install with package.json
+
+once you clone you should be able to run with npm start in your terminal 
