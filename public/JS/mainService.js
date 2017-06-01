@@ -28,6 +28,13 @@ angular.module('excelCourses' ).service('mainService', function($http, $q){
       data: data
     })
   }
+  this.findResource = function(data){
+    return $http({
+      method: 'POST',
+      url: "/api/findResource",
+      data: data
+    })
+  }
   this.deleteMission = function(data){
     return $http({
       method: 'POST',

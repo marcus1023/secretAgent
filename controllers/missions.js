@@ -24,19 +24,67 @@ module.exports = {
   },
   checkMissions: function (req, res) {
     db.checkMissions(function (err, result) {
-      for(let i = 0; i < result.length; i++){
-        let originDate = result[i].unixtime
-        let timeout = result[i].timeout
-        let currentUnix = Math.round(new Date().getTime()/1000)
-        if(currentUnix > originDate + timeout){
-          console.log('delete the record of agent' + result[i].agent + " their id:" + result[i].id)
+      if(result){
+        for(let i = 0; i < result.length; i++){
+          let originDate = result[i].unixtime;
+          let timeout = result[i].timeout;
+          let id = result[i].id;
+          let currentUnix = Math.round(new Date().getTime()/1000);
+          if(currentUnix > originDate + timeout){
+            db.deleteMission([id], function (err, result) {
+              console.log(err, result)
+            })
+          }
         }
       }
     });
   },
-  getMissions: function (req, res) {
-    db.checkMissions(function (err, result) {
+  changeAgent: function (req, res) {
+    console.log(req.body)
+    let id = req.body.id
+    let value = req.body.value
+    db.changeAgent([value, id],function (err, result) {
+      res.send('Success')
+    });
+  },
+  deleteMission: function (req, res) {
+    let id = req.body.id
+    db.deleteMission([id],function (err, result) {
+      res.send('Success')
+    });
+  },
+  changeMissionDisc: function (req, res) {
+    let id = req.body.id
+    let value = req.body.value
+    console.log('got here')
+    console.log(req.body)
+    db.changeMissionDisc([value, id],function (err, result) {
+      res.send('Success')
+    });
+  },
+  changeTimeout: function (req, res) {
+    let id = req.body.id
+    let value = req.body.value
+    let currentUnix = Math.round(new Date().getTime()/1000);
+    console.log('got here')
+    console.log(req.body)
+    db.changeTimeout([value, id],function (err, result) {
+      db.changeUnix([currentUnix, id],function (err, result) {
+
+      });
+      res.send('Success')
+    });
+  },
+  findResource: function (req, res) {
+    let id = req.body.value
+    db.findResource([id],function (err, result) {
+      console.log(result);
       res.send(result)
     });
-  }
+  },
+  getMissions: function (req, res) {
+    db.checkMissions(function (err, result) {
+      res.status(200).send(result)
+    });
+  },
 }

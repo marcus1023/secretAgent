@@ -1,0 +1,70 @@
+*****
+SECRET AGENT System API Documentation
+*****
+
+GET REQUESTS
+/api/getMissions
+  - Gets all missions in the collection and returns in JSON object
+
+
+POST REQUESTS
+/api/createMission
+- Creates a new mission and requires a JSON object with three key value pairs
+- Reduired JSON Object
+  {
+  agentNum: (agent number / int),
+  message: (message for your agent discribing mission / string),
+  timeout: (agent number / int)
+  }
+
+/api/deleteMission
+- Deletes a mission and requires a JSON object defining the id of the mission to be deleted
+- Required JSON Object
+  {
+  id: (id of the mission / int)
+  }
+
+/api/changeAgent
+- Changes the agent number associated with a given mission and requires id of mission and new agent number
+- Required JSON Object
+  {
+  id: (id of the mission / int),
+  value: (new agent number / int)
+  }
+
+/api/changeTimeout
+- Changes the self destruct timer associated with a given mission and requires id of mission and new time specified in seconds
+- Required JSON Object
+  {
+  id: (id of the mission / int),
+  value: (new agent number / int)
+  }
+
+/api/changeMissionDisc
+- Changes the description associated with a given mission and requires id of mission and new description
+- Required JSON Object
+  {
+  id: (id of the mission / int),
+  value: (new description / string)
+  }
+
+/api/findResource
+- Finds a resource(mission) by id number and requires id number of mission
+- Required JSON Object
+  {
+  id: (id of the mission / int)
+  }
+
+
+
+*****
+How To build and Deploy
+*****
+
+Prerequisites:
+git installed
+npm installed
+
+Instructions:
+
+Clone this

@@ -8,6 +8,7 @@ var massive = require('massive');
 var connect = massive.connectSync({connectionString: config.connectionString});
 var massiveInstance = massive.connectSync({connectionString : config.connectionString})
 var app = module.exports = express();
+// let testing = require('./test/apiCheckers.js')
 
 app.set('db', massiveInstance);
 var db = app.get('db');
@@ -30,16 +31,18 @@ let missionCrtl = require('./controllers/missions.js') ;
 function checkMissions(){
 	missionCrtl.checkMissions();
 }
-setInterval(checkMissions, 20000);
+setInterval(checkMissions, 800);
 
 
 // system API routes
+
 // Create a new Mission
 app.post('/api/createMission', missionCrtl.createMission);
-// app.post('/api/deleteMission', missionCrtl.deleteMission);
-// app.post('/api/changeAgent', missionCrtl.changeAgent);
-// app.post('/api/changeTimeout', missionCrtl.changeTimeout);
-// app.post('/api/changeMissionDisc', missionCrtl.changeMissionDisc);
+app.post('/api/deleteMission', missionCrtl.deleteMission);
+app.post('/api/changeAgent', missionCrtl.changeAgent);
+app.post('/api/changeTimeout', missionCrtl.changeTimeout);
+app.post('/api/changeMissionDisc', missionCrtl.changeMissionDisc);
+app.post('/api/findResource', missionCrtl.findResource);
 app.get('/api/getMissions', missionCrtl.getMissions);
 
 app.listen(5000 , function(){
